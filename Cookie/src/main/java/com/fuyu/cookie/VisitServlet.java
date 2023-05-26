@@ -51,8 +51,8 @@ public class VisitServlet extends HttpServlet {
         Cookie c=new Cookie("lastVisit", d.toLocaleString());
         //给Cookie 设置有效路径
         c.setPath("/Cookie"); //模块名
-        //给Cookie设置有效时长
-       // c.setMaxAge(60*60); //设置有效时常为1h
+        //给Cookie设置有效时长  设置成了 持久级别的Cookie  关闭浏览器之后， 还可以存在cookie
+        c.setMaxAge(60*60); //设置有效时常为1h
         //回写到浏览器:
         response.addCookie(c);
 
