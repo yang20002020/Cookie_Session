@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Cookie" />
+        <module name="Cookie_web" />
       </profile>
     </annotationProcessing>
   </component>

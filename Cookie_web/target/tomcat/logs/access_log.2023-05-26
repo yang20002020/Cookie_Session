@@ -1,0 +1,3 @@
+0:0:0:0:0:0:0:1 - - [26/May/2023:16:32:39 +0800] "GET /Cookie_web HTTP/1.1" 302 - http-bio-8080-exec-1 0
+0:0:0:0:0:0:0:1 - - [26/May/2023:16:32:41 +0800] "GET /Cookie_web/ HTTP/1.1" 200 52 http-bio-8080-exec-3 1395
+0:0:0:0:0:0:0:1 - - [26/May/2023:16:32:48 +0800] "GET /Cookie_web/login.jsp HTTP/1.1" 200 835 http-bio-8080-exec-4 90
