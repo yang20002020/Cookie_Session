@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 
@@ -43,9 +44,12 @@ public class LoginServlet extends HttpServlet {
                    request.getRequestDispatcher("/login.jsp").forward(request, response);
                } else {
                    // 登录成功
-
+                   //保存用户信息,保存到会话当中
+                   HttpSession session=request.getSession();
+                   //保存数据
+                   session.setAttribute("existUser",existUser);
                    // 重定向到成功页面
-                   response.sendRedirect("/web02_login/success.jsp");
+                   response.sendRedirect("/Cookie_web/success.jsp");
                }
        }catch (Exception e){
           e.printStackTrace();

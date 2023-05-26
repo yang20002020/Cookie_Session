@@ -11,7 +11,16 @@
     <title>Title</title>
 </head>
 <body>
+
+<%
+    String msg = "";
+    if(request.getAttribute("msg") != null){
+        // 有错误信息：显示错误信息:
+        msg = (String)request.getAttribute("msg");
+    }
+%>
 <h1>登录页面</h1>
+<h3> <font color="red"><%= msg%></font></h3>
 <form action="/Cookie_web/LoginServlet" method="post">
     <table border="1" width="500">
         <tr>
