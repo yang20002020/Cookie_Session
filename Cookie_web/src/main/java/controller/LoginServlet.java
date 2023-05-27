@@ -7,10 +7,7 @@ import model.UserModel;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import java.io.IOException;
 
 
@@ -60,6 +57,19 @@ public class LoginServlet extends HttpServlet {
                    HttpSession session=request.getSession();
                    //保存数据
                    session.setAttribute("existUser",existUser);
+                   //记住用户名
+                   //判断复选框是否已经勾选了
+                   String remember=request.getParameter("remember");
+                   if("true".equals(remember)){
+                       //已经勾选了
+                       Cookie cookie=new Cookie("remember",existUser.getUsername());
+                       //设置有效路径
+                       cookie.setPath("/Cookie_web");
+                       //设置有效时长
+                       cookie.setMaxAge(60*60*24);
+                       //将Cookie 回写到浏览器
+                       response.addCookie(cookie);
+                   }
                    // 重定向到成功页面
                    response.sendRedirect("/Cookie_web/success.jsp");
                }

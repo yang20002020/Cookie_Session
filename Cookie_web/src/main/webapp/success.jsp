@@ -16,7 +16,7 @@
                <%
                      User existUser =(User) request.getSession().getAttribute("existUser");
                 %>
-                   <h3>您好:<%= existUser.getNickname()%></h3>
+                   <h3>您好:<%= existUser.getNickname()%> <a href="/Cookie_web/LogoutServlet">退出</a></h3>
         <%
            }
         %>

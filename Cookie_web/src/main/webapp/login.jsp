@@ -9,6 +9,12 @@
 <html>
 <head>
     <title>Title</title>
+    <script type="text/javascript">
+        function changeImg(){
+            document.getElementById("img1").src="/Cookie_web/CheckImgServlet?time="+new Date().getTime();
+        }
+
+    </script>
 </head>
 <body>
 
@@ -25,7 +31,7 @@
     <table border="1" width="500">
         <tr>
             <td>用户名</td>
-            <td><input type="text" name="username" /></td>
+            <td><input type="text" name="username" value="${ cookie.remember.value }"/></td>
         </tr>
         <tr>
             <td>密码</td>
@@ -33,14 +39,17 @@
         </tr>
         <tr>
             <td>验证码</td>
-            <td><input type="text" name="checkcode" size="6"/><img src="/Cookie_web/CheckImgServlet"/></td>
+            <td><input type="text" name="checkcode" size="6"/>
+                <img  id="img1" src="/Cookie_web/CheckImgServlet"/>
+                <a href="#" onclick="changeImg()">看不清，换一张</a>
+            </td>
         </tr>
         <tr>
             <td><input type="checkbox" name="remember" value="true"/></td>
             <td>记住用户名</td>
         </tr>
         <tr>
-            <td colspan="2"><input type="submit" value="登录"/></td>
+            <td colspan="2"><input type="submit" value="登录" /></td>
         </tr>
     </table>
 </form>
