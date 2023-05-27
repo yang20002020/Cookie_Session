@@ -28,6 +28,18 @@ public class LoginServlet extends HttpServlet {
                request.setCharacterEncoding("UTF-8");
                String username = request.getParameter("username");
                String password = request.getParameter("password");
+               //接收验证码
+               String checkcode1=request.getParameter("checkcode");
+               //从session中获取一次性验证码的值：
+               String checkcode2=(String)request.getSession().getAttribute("checkcode");
+               //为了保证验证码使用一次：应该将session中的验证码值清空
+               request.getSession().removeAttribute("checkcode");
+               //校验一次性验证码  equalsIgnoreCase  忽略大小写
+               if(!checkcode1.equalsIgnoreCase(checkcode2)){
+                   request.setAttribute("msg","验证码输入错误");
+                   request.getRequestDispatcher("/login.jsp").forward(request,response);
+                   return;
+               }
                // 2.封装数据
                User user = new User();
                user.setUsername(username);

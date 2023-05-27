@@ -2,7 +2,7 @@
 <c3p0-config>
 	<default-config>
 		<property name="driverClass">com.mysql.cj.jdbc.Driver</property>
-		<property name="jdbcUrl">jdbc:mysql:///Cookie_web</property>
+		<property name="jdbcUrl">jdbc:mysql:///web02_login</property>
 		<property name="user">root</property>
 		<property name="password">fendou2017</property>
 		
