@@ -1,10 +1,6 @@
 package controller;
-
-
-
 import domain.User;
 import model.UserModel;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
